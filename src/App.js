@@ -1,70 +1,20 @@
-import React, { useContext } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthContext, AuthProvider } from './context/AuthContext';
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import AdminPanel from './pages/AdminPanel';
-import UserProfile from './pages/UserProfile';
-import Reports from './pages/Reports';
+import React from 'react';
+import WorkScheduleVisualizer from './components/WorkScheduleVisualizer';
 import './App.css';
-
-// Захищений маршрут
-const ProtectedRoute = ({ children }) => {
-  const { user, loading } = useContext(AuthContext);
-  
-  if (loading) {
-    return <div className="flex items-center justify-center h-screen">Завантаження...</div>;
-  }
-  
-  if (!user) {
-    return <Navigate to="/login" />;
-  }
-  
-  return children;
-};
 
 function App() {
   return (
-    <AuthProvider>
-      <Router>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route 
-            path="/dashboard" 
-            element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            } 
-          />
-          <Route 
-            path="/admin" 
-            element={
-              <ProtectedRoute>
-                <AdminPanel />
-              </ProtectedRoute>
-            } 
-          />
-          <Route 
-            path="/reports" 
-            element={
-              <ProtectedRoute>
-                <Reports />
-              </ProtectedRoute>
-            } 
-          />
-          <Route 
-            path="/profile" 
-            element={
-              <ProtectedRoute>
-                <UserProfile />
-              </ProtectedRoute>
-            } 
-          />
-          <Route path="/" element={<Navigate to="/dashboard" />} />
-        </Routes>
-      </Router>
-    </AuthProvider>
+    <div className="App bg-gray-100 min-h-screen">
+      <header className="bg-blue-600 text-white p-4 shadow-md">
+        <h1 className="text-2xl font-bold">Візуалізатор робочого часу</h1>
+      </header>
+      <main className="container mx-auto p-4">
+        <WorkScheduleVisualizer 
+          userRole="admin" // Можна міняти для тестування різних ролей
+          userId="1"
+        />
+      </main>
+    </div>
   );
 }
 
