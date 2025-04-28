@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/time-dashboard/static/css/main.4a8317f6.css",
+    "main.js": "/time-dashboard/static/js/main.9f9527b2.js",
+    "static/js/453.c5afc341.chunk.js": "/time-dashboard/static/js/453.c5afc341.chunk.js",
+    "index.html": "/time-dashboard/index.html",
+    "main.4a8317f6.css.map": "/time-dashboard/static/css/main.4a8317f6.css.map",
+    "main.9f9527b2.js.map": "/time-dashboard/static/js/main.9f9527b2.js.map",
+    "453.c5afc341.chunk.js.map": "/time-dashboard/static/js/453.c5afc341.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4a8317f6.css",
+    "static/js/main.9f9527b2.js"
+  ]
+}
